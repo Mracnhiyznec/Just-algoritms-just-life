@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+typedef long long ll;
+int k;
+vector<ll> binary_number;
+void printarray(){
+    for (auto c: binary_number){
+        cout << c;
+    }
+}
+void find_next(int i){
+    if (i == k){
+        printarray();
+        cout << '\n';
+        return;
+    }
+    binary_number[i] = 0;
+    find_next(i + 1);
+    binary_number[i] = 1;
+    find_next(i + 1);
+
+}
+int main(){
+    cin >> k;
+    binary_number.resize(k);
+    find_next(0);
+    return 0;
+}
